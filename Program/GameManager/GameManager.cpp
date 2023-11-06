@@ -12,6 +12,10 @@ GameManager::GameManager()
 	currentSceneNo_ = TITLE;
 	prevSceneNo_ = TITLE;
 
+	// シーンの静的初期化
+	sceneArr_[currentSceneNo_]->StaticInit();
+
+	// 入力マネージャー
 	inputManager_ = InputManager::GetInstance();
 
 }
