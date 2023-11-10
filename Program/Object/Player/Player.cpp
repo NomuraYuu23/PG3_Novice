@@ -56,6 +56,9 @@ void Player::Draw()
 	Novice::DrawEllipse(static_cast<int>(position_.x), static_cast<int>(position_.y),
 		static_cast<int>(radius_), static_cast<int>(radius_), 0.0f, RED, kFillModeSolid);
 
+	Novice::ScreenPrintf(40, 40, "MOVE : WASD");
+	Novice::ScreenPrintf(40, 60, "SHOT : SPACE");
+
 }
 
 void Player::Move()

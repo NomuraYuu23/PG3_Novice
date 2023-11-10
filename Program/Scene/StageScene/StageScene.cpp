@@ -21,6 +21,7 @@ void StageScene::Update()
 
 	Collision();
 
+	// 敵が死んだらクリアシーンに行く
 	if (enemy_->IsDead()) {
 		sceneNo = CLEAR;
 	}
