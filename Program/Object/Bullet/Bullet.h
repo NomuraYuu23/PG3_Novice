@@ -33,6 +33,18 @@ public: // アクセッサ
 	/// <returns></returns>
 	bool IsDead() { return isDead_; }
 
+	/// <summary>
+	/// 位置取得
+	/// </summary>
+	/// <returns></returns>
+	Vector2 GetPosition() { return position_; }
+
+	/// <summary>
+	/// 半径取得
+	/// </summary>
+	/// <returns></returns>
+	float GetRadius() { return radius_; }
+
 private: // メンバ関数
 
 	/// <summary>

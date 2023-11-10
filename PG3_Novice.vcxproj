@@ -110,6 +110,7 @@
     <ClCompile Include="Program\GameManager\GameManager.cpp" />
     <ClCompile Include="Program\InputManager\InputManager.cpp" />
     <ClCompile Include="Program\Object\Bullet\Bullet.cpp" />
+    <ClCompile Include="Program\Object\Enemy\Enemy.cpp" />
     <ClCompile Include="Program\Object\Player\Player.cpp" />
     <ClCompile Include="Program\Scene\ClearScene\ClearScene.cpp" />
     <ClCompile Include="Program\Scene\IScene\IScene.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="Program\GameManager\GameManager.h" />
     <ClInclude Include="Program\InputManager\InputManager.h" />
     <ClInclude Include="Program\Object\Bullet\Bullet.h" />
+    <ClInclude Include="Program\Object\Enemy\Enemy.h" />
     <ClInclude Include="Program\Object\Player\Player.h" />
     <ClInclude Include="Program\Scene\ClearScene\ClearScene.h" />
     <ClInclude Include="Program\Scene\IScene\IScene.h" />

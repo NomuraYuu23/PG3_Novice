@@ -26,6 +26,11 @@ void Player::Initialize()
 
 	inputManager_ = InputManager::GetInstance();
 
+	bullets_.remove_if([](Bullet* bullet) {
+		delete bullet;
+		return true;
+	});
+
 }
 
 void Player::Update()

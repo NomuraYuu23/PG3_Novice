@@ -1,21 +1,13 @@
 #pragma once
-#include "Vector2.h"
-#include "../Bullet/Bullet.h"
-#include <list>
-#include <Program/InputManager/InputManager.h>
+#include <Vector2.h>
 
 /// <summary>
-/// プレイヤー
+/// エネミー
 /// </summary>
-class Player
+class Enemy
 {
 
 public: // メンバ関数
-
-	/// <summary>
-	/// デストラクタ
-	/// </summary>
-	~Player();
 
 	/// <summary>
 	/// 初期化
@@ -35,10 +27,28 @@ public: // メンバ関数
 public: // アクセッサ
 
 	/// <summary>
-	/// 弾取得
+	/// しんでるか
 	/// </summary>
 	/// <returns></returns>
-	std::list<Bullet*> GetBullets() { return bullets_; }
+	bool IsDead() { return isDead_; }
+
+	/// <summary>
+	/// 死ぬ
+	/// </summary>
+	/// <returns></returns>
+	void SetIsDead(bool isDead) { isDead_ = isDead; }
+
+	/// <summary>
+	/// 位置取得
+	/// </summary>
+	/// <returns></returns>
+	Vector2 GetPosition() { return position_; }
+
+	/// <summary>
+	/// 半径取得
+	/// </summary>
+	/// <returns></returns>
+	float GetRadius() { return radius_; }
 
 private: // メンバ関数
 
@@ -46,16 +56,6 @@ private: // メンバ関数
 	/// 移動
 	/// </summary>
 	void Move();
-
-	/// <summary>
-	/// 発射
-	/// </summary>
-	void Fire();
-
-	/// <summary>
-	/// 弾の更新
-	/// </summary>
-	void BulletsUpdate();
 
 private: // メンバ変数
 
@@ -68,11 +68,11 @@ private: // メンバ変数
 	// 速さ
 	float speed_;
 
-	// 弾
-	std::list<Bullet*> bullets_;
+	// 移動方向
+	bool isLeftMove_;
 
-	// 入力マネージャー
-	InputManager* inputManager_;
+	// 死亡フラグ
+	bool isDead_;
 
 };
 
