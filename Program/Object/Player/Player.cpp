@@ -2,6 +2,16 @@
 #include <Novice.h>
 #include <cmath>
 
+Player::~Player()
+{
+
+	bullets_.remove_if([](Bullet* bullet) {
+		delete bullet;
+		return true;
+	});
+
+}
+
 void Player::Initialize()
 {
 
@@ -25,10 +35,18 @@ void Player::Update()
 
 	Fire();
 
+	BulletsUpdate();
+
 }
 
 void Player::Draw()
 {
+
+	// 弾を表示する
+	for (Bullet* bullet : bullets_) {
+		bullet->Draw();
+	}
+
 	// 円を表示する
 	Novice::DrawEllipse(static_cast<int>(position_.x), static_cast<int>(position_.y),
 		static_cast<int>(radius_), static_cast<int>(radius_), 0.0f, RED, kFillModeSolid);
@@ -108,4 +126,28 @@ void Player::Move()
 
 void Player::Fire()
 {
+	
+	if (inputManager_->GetKeys()[DIK_SPACE] && inputManager_->GetPreKeys()[DIK_SPACE] == 0) {
+		Bullet* bullet = new Bullet();
+		bullet->Initialize(position_);
+		bullets_.push_back(bullet);
+	}
+
+}
+
+void Player::BulletsUpdate()
+{
+
+	bullets_.remove_if([](Bullet* bullet) {
+		if (bullet->IsDead()) {
+			delete bullet;
+			return true;
+		}
+		return false;
+	});
+
+	for (Bullet* bullet : bullets_) {
+		bullet->Update();
+	}
+
 }

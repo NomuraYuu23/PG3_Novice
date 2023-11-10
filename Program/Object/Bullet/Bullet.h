@@ -1,26 +1,19 @@
 #pragma once
 #include "Vector2.h"
-#include "../Bullet/Bullet.h"
-#include <list>
-#include <Program/InputManager/InputManager.h>
 
 /// <summary>
-/// プレイヤー
+/// 弾
 /// </summary>
-class Player
+class Bullet
 {
 
 public: // メンバ関数
 
 	/// <summary>
-	/// デストラクタ
-	/// </summary>
-	~Player();
-
-	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize();
+	/// <param name="position">位置</param>
+	void Initialize(const Vector2& position);
 
 	/// <summary>
 	/// 更新
@@ -32,6 +25,14 @@ public: // メンバ関数
 	/// </summary>
 	void Draw();
 
+public: // アクセッサ
+
+	/// <summary>
+	/// しんでるか
+	/// </summary>
+	/// <returns></returns>
+	bool IsDead() { return isDead_; }
+
 private: // メンバ関数
 
 	/// <summary>
@@ -40,14 +41,9 @@ private: // メンバ関数
 	void Move();
 
 	/// <summary>
-	/// 発射
+	/// 死亡判定
 	/// </summary>
-	void Fire();
-
-	/// <summary>
-	/// 弾の更新
-	/// </summary>
-	void BulletsUpdate();
+	void Death();
 
 private: // メンバ変数
 
@@ -60,11 +56,8 @@ private: // メンバ変数
 	// 速さ
 	float speed_;
 
-	// 弾
-	std::list<Bullet*> bullets_;
-
-	// 入力マネージャー
-	InputManager* inputManager_;
+	// 死亡フラグ
+	bool isDead_;
 
 };
 
