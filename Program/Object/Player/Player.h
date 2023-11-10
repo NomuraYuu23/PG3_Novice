@@ -1,5 +1,6 @@
 #pragma once
 #include "Vector2.h"
+#include <Program/InputManager/InputManager.h>
 
 class Player
 {
@@ -28,6 +29,9 @@ private: // メンバ変数
 
 	// 速さ
 	float speed_;
+
+	// 入力マネージャー
+	InputManager* inputManager_;
 
 };
 
