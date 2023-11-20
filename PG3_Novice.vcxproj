@@ -106,7 +106,11 @@
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\TextureManager.cpp" />
     <ClCompile Include="C:\KamataEngine\DirectXGame\2d\ImGuiManager.cpp" />
     <ClCompile Include="C:\KamataEngine\Adapter\Novice.cpp" />
+    <ClCompile Include="Command\MoveLeftCommand\MoveLeftCommand.cpp" />
+    <ClCompile Include="Command\MoveRightCommand\MoveRightCommand.cpp" />
+    <ClCompile Include="InputHandle\InputHandle.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\KamataEngine\DirectXGame\math\Matrix4x4.h" />
@@ -135,6 +139,11 @@
     <ClInclude Include="C:\KamataEngine\DirectXGame\input\Input.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\scene\GameScene.h" />
     <ClInclude Include="C:\KamataEngine\Adapter\Novice.h" />
+    <ClInclude Include="Command\ICommand\ICommand.h" />
+    <ClInclude Include="Command\MoveLeftCommand\MoveLeftCommand.h" />
+    <ClInclude Include="Command\MoveRightCommand\MoveRightCommand.h" />
+    <ClInclude Include="InputHandle\InputHandle.h" />
+    <ClInclude Include="Player\Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

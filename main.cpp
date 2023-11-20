@@ -1,4 +1,7 @@
 #include <Novice.h>
+#include "Player/Player.h"
+#include "InputHandle/InputHandle.h"
+#include "Command/ICommand/ICommand.h"
 
 const char kWindowTitle[] = "LE2A_16_ノムラユウ_タイトル";
 
@@ -11,6 +14,14 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
 	char preKeys[256] = {0};
+
+	//変数
+	InputHandle* inputHandle_ = new InputHandle();
+	inputHandle_->AssignMoveLeftCommand2PressKeyA();
+	inputHandle_->AssignMoveLeftCommand2PressKeyD();
+	ICommand* command_ = nullptr;
+	Player* player_ = new Player();
+	player_->Initialize();
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -25,6 +36,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
+		command_ = inputHandle_->HandleInput();
+
+		if (command_) {
+			command_->Execution(*player_);
+		}
+
 		///
 		/// ↑更新処理ここまで
 		///
@@ -32,6 +49,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 		/// ↓描画処理ここから
 		///
+
+		player_->Draw();
 
 		///
 		/// ↑描画処理ここまで
